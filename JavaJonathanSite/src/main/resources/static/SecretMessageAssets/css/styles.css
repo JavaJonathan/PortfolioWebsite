@@ -1,0 +1,65 @@
+#navBar {
+  background: #ffffff;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  color: black;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  background-color: #093444;
+  margin-bottom: 150px;
+}
+
+#footer {
+  padding: 40px 0;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 75px;
+}
+
+#mainJumbo {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 150px;
+  background-color: rgb(6,53,69);
+  color: white;
+}
+
+#scrambleButtonDiv {
+  margin-top: 50px;
+}
+
+#scramblerButton {
+  height: 200px;
+  width: 200px;
+  background-color: black;
+  font-size: 24px;
+}
+
+#lockIcon {
+  font-size: 36px;
+  margin-top: 40px;
+}
+
+#mainTextArea {
+  width: 650px;
+  height: 300px;
+}
+
+#mainTextDiv {
+  margin-top: 15px;
+}
+
+#passwordText {
+  width: 150px;
+}
+
+#sumbitButtonDiv {
+  margin-top: 30px;
+}
+
+#submitButton {
+  width: 200px;
+  background-color: black;
+}
+

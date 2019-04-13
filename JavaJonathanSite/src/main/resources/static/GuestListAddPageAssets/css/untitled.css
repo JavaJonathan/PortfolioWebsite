@@ -1,0 +1,57 @@
+body {
+  background-image: url(guestListBGPic.jpg);
+}
+
+.navigation-clean {
+  background: #ffffff;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  color: #333;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+  background-color: rgb(43,37,41);
+}
+
+#mainJumbo {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 25px;
+  background-color: rgb(94,148,212);
+}
+
+#editJumbo {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 10px;
+  background-color: rgb(247,6,10);
+}
+
+#mainHeading {
+  margin-top: -50px;
+  margin-bottom: 50px;
+}
+
+#buttonPara {
+  clear: both;
+}
+
+#firstName {
+  width: 250px;
+}
+
+#addButton {
+  clear: initial;
+}
+
+#lastname {
+  width: 250px;
+}
+
+#rsvpDropDown {
+  background-color: black;
+  width: 150px;
+  color: white;
+}
+

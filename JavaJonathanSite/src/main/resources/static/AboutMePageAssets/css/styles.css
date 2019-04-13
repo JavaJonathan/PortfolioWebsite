@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  background-image: url(../../AboutMePageAssets/img/blackHole.jpg);
+}
+
+#aboutMeJumbo {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 100px;
+  background-color: black;
+}
+
+#aboutMeHeading {
+  margin-top: -40px;
+  margin-bottom: 20px;
+}
+
+#photoDiv img {
+  vertical-align: middle;
+  border-style: none;
+  height: 300px;
+}
+
+#navBar {
+  background: #ffffff;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  color: black;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  background-color: #090909;
+  margin-bottom: 150px;
+}
+
+#navbar {
+  position: relative;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+}
+

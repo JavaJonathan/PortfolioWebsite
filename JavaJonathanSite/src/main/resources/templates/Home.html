@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html style="background-size: cover;background-repeat: no-repeat;" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>JavaJonathanMainPage</title>
+    <link rel="stylesheet" href="HomePageAssets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="HomePageAssets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="HomePageAssets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="HomePageAssets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="HomePageAssets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="HomePageAssets/css/Projects-Clean.css">
+    <link rel="stylesheet" href="HomePageAssets/css/styles.css">
+</head>
+
+<body style="background-repeat: no-repeat;background-size: cover;">
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top border-white navigation-clean" id="navBar" style="opacity: 0.85;background-color: rgba(0,0,0,0.67);color: #050404;">
+        <div class="container"><a class="navbar-brand text-white" href="#"><strong>JavaJonathan.com</strong></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="Home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="AboutMePage"><i class="far fa-smile-beam"></i>&nbsp;About Me</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="ProjectPage"><i class="fas fa-clipboard-list"></i>&nbsp;Projects</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="GuestListMainPage"><i class="fa fa-glass"></i>&nbsp;Wedding Guest List Organizer Web App</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center" id="secretMessageDiv" style="background-color: rgba(6,0,0,0.54);"><a class="btn btn-primary" id="secretMessageButton" role="button" href="#" th:href="SecretMessageHome" style="background-color: rgba(0,123,255,0);">Check out my NEW Secret Message App here!&nbsp;</a></div>
+    <div id="jumboDiv" style="background-size: auto;background-repeat: no-repeat;">
+        <div class="jumbotron" id="mainJumbo" style="background-size: cover;background-repeat: no-repeat;background-image: url(&quot;HomePageAssets/img/lakeBG.jpeg&quot;);color: rgb(4,4,5);">
+            <h1 class="text-right"><strong>Jonathan Henderson</strong></h1>
+            <div id="titleDiv">
+                <h3 class="text-right" id="mainTitle">Java Developer</h3>
+                <h6 class="text-right" id="subTitle"><em>Web Application Development</em><br><em>Desktop Application Development</em></h6>
+            </div>
+            <p class="text-center" id="socialMediaPara"><a href="#"></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="fa fa-github" style="color: rgb(169,1,19);"></i></a><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="fa fa-linkedin-square" style="color: rgb(164,4,24);"></i></a>
+                <a
+                    href="https://www.facebook.com/jonhenderson20" target="_blank"><i class="fa fa-facebook-official" style="color: rgb(168,2,23);"></i></a>
+            </p>
+        </div>
+    </div>
+    <div id="projectsBlock" class="projects-clean" style="opacity: 0.78;">
+        <div class="container text-white" id="projectContainer">
+            <div class="intro">
+                <h2 class="text-center">Projects </h2>
+                <p class="text-center text-white" style="opacity: 1;">All of my projects are listed below. Click View Full Projects to see additional information/download any of these applications.&nbsp;<a class="btn btn-primary" id="viewAllButton" role="button" href="#" th:href="ProjectPage">View Full Projects</a></p>
+            </div>
+            <div class="row projects">
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" id="champagneIMG" src="HomePageAssets/img/Champagne-PNG-Image.png">
+                    <h3 class="name">Wedding Guest List Web App</h3>
+                    <p class="text-white description">An app that creates a dynamic list for your Guest List, eliminates any mundane tasks of creating a guest list. No internet required for use!</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" id="champagneIMG" src="HomePageAssets/img/secret.png">
+                    <h3 class="name">Secret Message Web App</h3>
+                    <p class="text-white description">An app that allows the user to send a coded message to another person and only they will know what was said! No internet required for use!</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" src="HomePageAssets/img/yugi.png">
+                    <h3 class="name">YGO POTM Calculator</h3>
+                    <p class="text-white description">An app that allows the user to dynamically add players to a list, keeps track of their points, then calculates the Player of the Month winner.</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" src="HomePageAssets/img/lock.png">
+                    <h3 class="name">Secret Message App</h3>
+                    <p class="text-white description">Web version of the Secret Message App!</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" id="flowerIMG" src="HomePageAssets/img/flower.png">
+                    <h3 class="name">Wedding Guest List Desktop App</h3>
+                    <p class="text-white description">Web version of the Wedding Guest List App!</p>
+                </div>
+                <div class="col">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="footer-basic">
+        <footer>
+            <div>
+                <p class="d-flex justify-content-center" id="techPara">Built using the following technologies:</p>
+                <p class="d-flex justify-content-center" id="techIMGpara"><img src="HomePageAssets/img/maven.png" width="75" height="75"><img src="HomePageAssets/img/springIMG.png" width="75" height="75"><img src="HomePageAssets/img/javaIMG.png" width="75" height="75"><img src="HomePageAssets/img/tomcatIMG.jpg" width="75" height="75"><img src="HomePageAssets/img/thymeleafIMG.png"
+                        width="75" height="75"><img src="HomePageAssets/img/bootStrapStudioIMG.jpg" width="100" height="75"></p>
+            </div>
+            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+            <ul
+                class="list-inline">
+                <li class="list-inline-item"><a href="#" th:href="Home">Home</a></li>
+                <li class="list-inline-item"><a href="#" th:href="AboutMePage">About</a></li>
+                </ul>
+        </footer>
+    </div>
+    <script src="HomePageAssets/js/jquery.min.js"></script>
+    <script src="HomePageAssets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

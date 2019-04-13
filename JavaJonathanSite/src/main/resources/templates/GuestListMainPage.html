@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>GuestListOrganizerMainPage</title>
+    <link rel="stylesheet" href="GuestListMainPageAssets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="GuestListMainPageAssets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="GuestListMainPageAssets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="GuestListMainPageAssets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="GuestListMainPageAssets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="GuestListMainPageAssets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="GuestListMainPageAssets/css/styles.css">
+</head>
+
+<body style="background-repeat: no-repeat;background-size: cover;background-image: url(&quot;GuestListMainPageAssets/img/space2.jpg&quot;);">
+    <div>
+        <nav class="navbar navbar-dark navbar-expand-md fixed-top border-white navigation-clean" style="opacity: 0.85;background-color: rgba(4,4,4,0.56);">
+            <div class="container"><a class="navbar-brand text-white" href="#" th:href="GuestListMainPage">Guest List Organizer</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="Home">&nbsp;<i class="fa fa-home"></i>&nbsp;Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="AboutMePage"><i class="far fa-smile-beam"></i>&nbsp;About Me</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="ProjectPage"><i class="fas fa-clipboard-list"></i>&nbsp;Projects</a></li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div id="messageDiv" style="color: rgb(251,251,251);">
+        <p class="text-center" th:inline="text"><strong th:utext="${mainMessage}">To get started, please add a guest to the list:</strong></p>
+    </div>
+    <div id="jumbrotronDiv" style="background-size: cover;background-repeat: no-repeat;">
+        <div class="jumbotron d-table flex-grow-1" style="opacity: 0.81;background-color: rgba(6,6,6,0.83);color: rgb(251,252,254);">
+            <div class="row" id="counterRow">
+                <div class="col d-flex justify-content-center">
+                    <p th:inline="text"><strong th:text="${session.guestCount}">0 &nbsp;Guest(s) Added</strong></p>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <p th:inline="text"><strong th:text="${session.numOfYes}">0 "Yes" replies</strong></p>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <p th:inline="text"><strong th:text="${session.weddingPartyCount}">0 Wedding Party Size</strong></p>
+                </div>
+                <div class="col">
+                    <p class="d-flex justify-content-center" th:inline="text"><strong th:text="${session.guestsWithoutTable}">0 Guests W/O Table No.</strong>&nbsp;</p>
+                </div>
+       		</div>
+            <div>
+                <p class="text-right"><strong><em>Search By Guests' First Name:</em></strong></p>
+            </div>
+            <form method="get" action="#" th:action="@{/searchList}">
+                <div class="form-row no-gutters d-flex align-items-center">
+                    <div class="col-lg-3 offset-lg-0">
+                        <div class="dropdown"><button class="btn btn-primary dropdown-toggle d-flex float-left" data-toggle="dropdown" aria-expanded="false" type="button" id="sortDropdown" style="background-color: rgb(233,134,191);color: rgb(4,0,0);"><strong>Sort List By</strong></button>
+                            <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" href="#" th:href="@{/sortListByLastName}">Last Name</a>
+                            <a class="dropdown-item" role="presentation" href="#" th:href="@{/sortListByTableNumber}">Table Number</a>
+                            <a class="dropdown-item" role="presentation" href="#" th:href="@{/sortListByRSVPStatus}">RSVP Status</a>
+                            <a class="dropdown-item" role="presentation" href="#" th:href="@{/sortListByGuestStatus}">Role</a></div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-0"><a class="btn btn-primary" role="button" href="#" th:href="GuestListAddPage" id="newGuestButton" style="background-color: rgb(229,120,175);color: rgb(13,0,0);"><i class="fa fa-plus"></i>&nbsp;<strong>Add/Edit Guest</strong></a></div>
+                <div class="col-lg-3 offset-lg-1"><a class="btn btn-primary" type="button" id="newGuestButton" style="background-color: rgb(229,120,175);color: rgb(13,0,0);" href="#" th:href="GuestListMainPage"><i class="fa fa-list"></i>&nbsp;<strong>Show Full List</strong></a></div>
+                <div class="col-lg-3 offset-lg-0 d-flex">
+                <input class="form-control float-left" type="text" placeholder="Search" id="searchText" name="searchFirstName">
+                <button class="btn btn-outline-primary btn-sm border-dark" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+        </div>
+        </form>
+        <div id="removePara">
+            <p class="text-center"><strong><em>Remove Guest By Name:</em></strong></p>
+        </div>
+        <div class="d-flex justify-content-center" id="removeDiv">
+            <form class="d-flex" method="post" action="#" th:action="@{/removeGuest}"><input class="form-control" type="text" placeholder="First Name" name="removeFirstName"><input class="form-control" type="text" placeholder="Last Name" id="lastNameTextBox" name="removeLastName"/><button class="btn btn-secondary btn-block" type="submit" id="removeButton" style="color: rgb(254,253,253);background-color: rgb(14,14,14);"><strong>Remove Guest</strong></button></form>
+        </div>
+        <div>
+            <div class="table-responsive d-table flex-grow-1">
+                <table class="table">
+                    <thead style="color: rgb(252,254,255);">
+                        <tr>
+                            <th style="color: rgb(252,253,254);">First Name</th>
+                            <th style="color: rgb(250,251,251);">Last Name</th>
+                            <th class="tableNumberRow">Table #</th>
+                            <th class="roleRow">Role</th>
+                            <th class="rsvpRow">RSVP Status</th>
+                        </tr>
+                    </thead>
+                    <tbody style="color: rgb(252,253,254);">
+                        <tr th:each="guest: ${session.allGuests}">
+                            <td th:inline="text"><strong th:text="${guest.firstName}">Java</strong></td>
+                            <td th:inline="text"><strong th:text="${guest.lastName}">Jonathan</strong></td>
+                            <td th:inline="text"><strong th:text="${guest.tableNumber}">0</strong></td>
+                         	<td th:inline="text"><strong th:text="${guest.specialGuest}">Best man</strong></td>
+                            <td th:inline="text"><strong th:text="${guest.rsvpStatus}">Yes</strong></td>                                                    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="footer" class="footer-basic">
+        <footer>
+            <p class="d-flex justify-content-center" id="techPara">Built using the following technologies:</p>
+            <p class="d-flex justify-content-center" id="techIMGpara"><img src="GuestListMainPageAssets/img/maven.png" width="75" height="75"><img src="GuestListMainPageAssets/img/springIMG.png" width="75" height="75"><img src="GuestListMainPageAssets/img/javaIMG.png" width="75" height="75"><img src="GuestListMainPageAssets/img/tomcatIMG.jpg" width="75" height="75"><img src="GuestListMainPageAssets/img/thymeleafIMG.png" width="75"
+                    height="75"><img src="GuestListMainPageAssets/img/bootStrapStudioIMG.jpg" width="100" height="75"></p>
+            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20"
+                    target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" th:href="Home">Home</a></li>
+                <li class="list-inline-item"><a href="#" th:href="AboutMePage">About</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="GuestListMainPageAssets/js/jquery.min.js"></script>
+    <script src="GuestListMainPageAssets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

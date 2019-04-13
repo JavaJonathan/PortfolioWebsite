@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ProjectsPage</title>
+    <link rel="stylesheet" href="ProjectPageAssets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ProjectPageAssets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="ProjectPageAssets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="ProjectPageAssets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="ProjectPageAssets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="ProjectPageAssets/css/styles.css">
+</head>
+
+<body style="background-size: cover;background-repeat: no-repeat;">
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top border-white navigation-clean" id="navBar" style="opacity: 0.85;">
+        <div class="container"><a class="navbar-brand text-white" href="#" th:href="Home">JavaJonathan.com</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="Home"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="AboutMePage"><i class="far fa-smile-beam"></i>&nbsp;About Me</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="ProjectPage"><i class="fas fa-clipboard-list"></i>&nbsp;Projects</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="GuestListMainPage"><i class="fa fa-glass"></i>&nbsp;Wedding Guest List Organizer Web App</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="jumbotron" id="mainJumbo" style="color: rgb(253,253,254);">
+        <h1 class="text-center">Projects</h1>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        <div class="row">
+            <div class="col-lg-4 d-flex flex-column align-items-center"><img src="ProjectPageAssets/img/Champagne-PNG-Image.png" id="champagneIMG">
+                <h4 class="text-center">Wedding Guest List Web App</h4>
+            </div>
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <p>Paragraph</p><a class="btn btn-primary" role="button" href="">Go To Site</a></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 d-flex flex-column align-items-center"><img src="ProjectPageAssets/img/lock.png" id="lockIMG">
+                <h4 class="text-center">Secret Message Desktop App</h4>
+            </div>
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <p>Paragraph</p><button class="btn btn-primary" type="button">Download</button></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 d-flex flex-column align-items-center"><img src="ProjectPageAssets/img/yugi.png">
+                <h4 class="text-center">Yu-Gi-Oh! Player of the Month Desktop App</h4>
+            </div>
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <p>Paragraph</p><button class="btn btn-primary" type="button">Download</button></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 d-flex flex-column align-items-center"><img src="ProjectPageAssets/img/flower.png">
+                <h4 class="text-center">Wedding Guest List Desktop App</h4>
+            </div>
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <p>Paragraph</p>
+                <div><button class="btn btn-primary" type="button">Download</button></div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="footer-basic">
+        <footer>
+            <div>
+                <p class="d-flex justify-content-center" id="techPara">Built using the following technologies:</p>
+                <p class="d-flex justify-content-center" id="techIMGpara"><img src="ProjectPageAssets/img/maven.png" width="75" height="75"><img src="ProjectPageAssets/img/springIMG.png" width="75" height="75"><img src="ProjectPageAssets/img/javaIMG.png" width="75" height="75"><img src="ProjectPageAssets/img/tomcatIMG.jpg" width="75" height="75"><img src="ProjectPageAssets/img/thymeleafIMG.png"
+                        width="75" height="75"><img src="ProjectPageAssets/img/bootStrapStudioIMG.jpg" width="100" height="75"></p>
+            </div>
+            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+            <ul
+                class="list-inline">
+                <li class="list-inline-item"><a href="#" th:href="Home">Home</a></li>
+                <li class="list-inline-item"><a href="#" th:href="About">About</a></li>
+                </ul>
+        </footer>
+    </div>
+    <script src="ProjectPageAssets/js/jquery.min.js"></script>
+    <script src="ProjectPageAssets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
