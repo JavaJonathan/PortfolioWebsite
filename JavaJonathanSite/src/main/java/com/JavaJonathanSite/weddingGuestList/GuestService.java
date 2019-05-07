@@ -1,8 +1,12 @@
 package com.JavaJonathanSite.weddingGuestList;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class GuestService
 {
 	public static ArrayList<Guest> guestArrayList = new ArrayList<>();
@@ -14,8 +18,8 @@ public class GuestService
 	// adds guest to list, return boolean to know whether name was in list or not
 	// allows all values though because controller will have checks and set to
 	// sensible defaults
-	public static boolean addGuestToList(String firstName, String lastName, int tableNumber, RSVPStatus rsvpStatus,
-			SpecialGuest specialGuest) 
+	public static boolean addGuestToList(String firstName, String lastName, int tableNumber, RSVPStatusEnum rsvpStatus,
+			SpecialGuestEnum specialGuest) 
 	{
 		//boolean to check if name is in list
 		boolean isNameInList = false;
@@ -44,6 +48,15 @@ public class GuestService
 		return guestAdded;
 	}
 	
+	//cycles through collection  and adds all guests from collection to array list, spring says collection cannot be casted into array list
+	//this is how we bypass that
+	public static void setGuestListFromDB(Collection<Guest> guestList) 
+	{
+		//clears list before populated from database just in case user already has the table popluated 
+		guestArrayList.clear();
+		guestList.stream().forEach(g -> guestArrayList.add(g));
+	}
+	
 	//takes in string to decide which sort method to call
 		public static void sortList(String sortMethod) 
 		{
@@ -58,15 +71,15 @@ public class GuestService
 		
 	// takes in string to decide which rsvpStatus to assign
 	// no need to error check because the options will be preset in drop down
-	public static RSVPStatus convertToRSVP(String rsvpStatusString) 
+	public static RSVPStatusEnum convertToRSVP(String rsvpStatusString) 
 	{
-		RSVPStatus rsvpStatus = RSVPStatus.MAYBE;
+		RSVPStatusEnum rsvpStatus = RSVPStatusEnum.MAYBE;
 
 		switch (rsvpStatusString) 
 		{
-		case "Maybe": rsvpStatus = RSVPStatus.MAYBE; break;
-		case "Yes": rsvpStatus = RSVPStatus.YES; break;
-		case "No": rsvpStatus = RSVPStatus.NO; break;
+		case "Maybe": rsvpStatus = RSVPStatusEnum.MAYBE; break;
+		case "Yes": rsvpStatus = RSVPStatusEnum.YES; break;
+		case "No": rsvpStatus = RSVPStatusEnum.NO; break;
 		}
 
 		return rsvpStatus;
@@ -74,20 +87,20 @@ public class GuestService
 	
 	// takes in string to decide which special guest status to assign
 	// no need to error check because the options will be preset in drop down
-	public static SpecialGuest convertToSepcialGuest(String specialGuestString) 
+	public static SpecialGuestEnum convertToSepcialGuest(String specialGuestString) 
 	{
-		SpecialGuest specialGuest = SpecialGuest.FALSE;
+		SpecialGuestEnum specialGuest = SpecialGuestEnum.FALSE;
 
 		switch (specialGuestString) 
 		{
-		case "Groomsman": specialGuest = SpecialGuest.GROOMSMAN; break;
-		case "Best Man": specialGuest = SpecialGuest.BESTMAN; break;
-		case "Flower Girl": specialGuest = SpecialGuest.FLOWERGIRL; break;
-		case "Maid of Honor": specialGuest = SpecialGuest.MAIDOFHONOR; break;
-		case "Officiant": specialGuest = SpecialGuest.OFFICIANT; break;
-		case "Ring Bearer": specialGuest = SpecialGuest.RINGBEARER; break;
-		case "Brides Maid": specialGuest = SpecialGuest.BRIDESMAID; break;
-		case "Regular Guest": specialGuest = SpecialGuest.FALSE; break;
+		case "Groomsman": specialGuest = SpecialGuestEnum.GROOMSMAN; break;
+		case "Best Man": specialGuest = SpecialGuestEnum.BESTMAN; break;
+		case "Flower Girl": specialGuest = SpecialGuestEnum.FLOWERGIRL; break;
+		case "Maid of Honor": specialGuest = SpecialGuestEnum.MAIDOFHONOR; break;
+		case "Officiant": specialGuest = SpecialGuestEnum.OFFICIANT; break;
+		case "Ring Bearer": specialGuest = SpecialGuestEnum.RINGBEARER; break;
+		case "Brides Maid": specialGuest = SpecialGuestEnum.BRIDESMAID; break;
+		case "Regular Guest": specialGuest = SpecialGuestEnum.FALSE; break;
 		}
 
 		return specialGuest;
@@ -128,7 +141,7 @@ public class GuestService
 		// cycles through list, then checks each guests rsvp status then counts
 		// the number of yes replies
 		for (Guest guests : guestArrayList) {
-			if (guests.getRsvpStatus().equals(RSVPStatus.YES)) {
+			if (guests.getRsvpStatus().equals(RSVPStatusEnum.YES)) {
 				counter++;
 			}
 		}
@@ -225,7 +238,7 @@ public class GuestService
 		return isNameInList;
 	}
 
-	public static boolean editRsvpStatus(String firstName, String lastName, RSVPStatus newRsvpStatus) 
+	public static boolean editRsvpStatus(String firstName, String lastName, RSVPStatusEnum newRsvpStatus) 
 	{
 		boolean isNameInList = false;
 
@@ -250,7 +263,7 @@ public class GuestService
 
 	}
 
-	public static boolean editSpecialGuest(String firstName, String lastName, SpecialGuest newSpecialGuest) 
+	public static boolean editSpecialGuest(String firstName, String lastName, SpecialGuestEnum newSpecialGuest) 
 	{
 		boolean isNameInList = false;
 

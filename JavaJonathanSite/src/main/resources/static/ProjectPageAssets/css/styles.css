@@ -41,3 +41,10 @@ h4 {
   margin-bottom: 20px;
 }
 
+
+#mainJumbo a {
+  background-color: rgb(176,79,96);
+  border-color: rgb(128,165,216);
+  color: black;
+}
+
