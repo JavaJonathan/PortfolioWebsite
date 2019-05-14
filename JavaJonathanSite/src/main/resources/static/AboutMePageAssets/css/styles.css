@@ -7,14 +7,23 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  background-image: url(../../AboutMePageAssets/img/blackHole.jpg);
+  background-image: url(blackHole.jpg);
 }
 
 #aboutMeJumbo {
   margin: 0 auto;
   width: 700px;
   margin-top: 100px;
-  background-color: black;
+  background-color: #000000;
+  font-size: 18px;
+}
+
+#firstCodeJumbo {
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 30px;
+  font-size: 18px;
+  background-color: #000000;
 }
 
 #aboutMeHeading {
@@ -26,6 +35,12 @@ body {
   vertical-align: middle;
   border-style: none;
   height: 300px;
+}
+
+#firstCodeDiv img {
+  vertical-align: middle;
+  border-style: none;
+  height: 400px;
 }
 
 #navBar {
@@ -48,5 +63,21 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: .5rem 1rem;
+}
+
+#photoDiv {
+  margin-bottom: 20px;
+}
+
+#firstCodeImg {
+  width: 400px;
+  background-color: black;
+}
+
+#resumeButton {
+  background-color: rgba(0,0,0,0);
+  border-color: rgb(126,65,194);
+  color: rgb(44,90,240);
+  font-size: 20px;
 }
 

@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="AboutMePageAssets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="AboutMePageAssets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="AboutMePageAssets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef">
     <link rel="stylesheet" href="AboutMePageAssets/css/Footer-Basic.css">
     <link rel="stylesheet" href="AboutMePageAssets/css/styles.css">
 </head>
 
-<body style="background-size: cover;background-repeat: no-repeat;">
+<body style="background-size: cover;background-repeat: no-repeat;background-image: url(&quot;AboutMePageAssets/img/supernoveBG.jpg&quot;);">
     <nav class="navbar navbar-dark navbar-expand-md fixed-top border-white navigation-clean" id="navBar" style="opacity: 0.85;">
-        <div class="container"><a class="navbar-brand text-white" href="#" th:href="Home">JavaJonathan.com</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand text-white" href="#" th:href="Home">JavaJonathan.com</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
@@ -27,12 +28,22 @@
         </div>
         </div>
     </nav>
-    <div class="jumbotron text-white" id="aboutMeJumbo" style="opacity: 0.78;">
+    <div class="jumbotron text-white" id="aboutMeJumbo" style="font-family: Alef, sans-serif;">
         <h1 class="text-center" id="aboutMeHeading">About Me</h1>
-        <p class="text-center">I'm <strong>Jonathan Henderson</strong>, a 24 year old aspiring Software Developer with an expertise in Java Software Development. I have built 3 Desktop Applications and 3 Web Applications. Programming in Java makes building
-            desktop applications a breeze, but I respect Front-End Developers even more after building this Web App. Learning the technologies necessary was not easy, but being a natural learner helped immensely. All in all, I am a well-rounded developer,
-            with an expertise in Java Software Development.</p>
-        <div class="d-flex justify-content-center" id="photoDiv" style="background-repeat: no-repeat;background-size: auto;"><img src="AboutMePageAssets/img/IMG_3075.jpg"></div>
+        <p class="text-center">I'm <strong>Jonathan Henderson</strong>, a 24 year old aspiring Software Developer with an expertise in Java Software Development. I have built many Desktop Applications and many Web Applications. Programming in Java makes building applications a breeze
+            with the awesome Spring Framework, but I respect Front-End Developers even more after building my first Web Application from scratch. Learning the technologies necessary was not easy, but being a natural learner helped immensely. All in all,
+            I am a well-rounded self-taught developer, with an expertise in Java Software Development.&nbsp;<br><br></p>
+        <div class="d-flex justify-content-center" id="photoDiv" style="background-repeat: no-repeat;background-size: auto;"><img src="AboutMePageAssets/img/portfolio.jpg"></div>
+        <div class="d-flex justify-content-center"><a class="btn btn-primary" role="button" id="resumeButton" target="_blank" style="color: rgb(114,57,176);" href="https://docs.google.com/document/d/1oUI5nGMnDg5xCjkqMI_Tizp57m343FsNWvPEkDXhoGM/edit?usp=sharing"><strong>View/Download My Resume</strong></a></div>
+    </div>
+    <div class="jumbotron text-white" id="firstCodeJumbo" style="font-family: Alef, sans-serif;">
+        <h1 class="text-center" id="aboutMeHeading">My First Code</h1>
+        <div class="d-flex justify-content-center" id="firstCodeDiv" style="background-repeat: no-repeat;background-size: auto;background-color: #040000;"><img id="firstCodeImg" src="AboutMePageAssets/img/firstCode.jpg"></div>
+        <p class="text-center">Becoming a <strong>self-taught developer </strong>has not been an easy journey. There were many ups and downs and many times I have wanted to give up. Certain bugs have brought to my knees and made me want to pull my hair out, but the end product
+            was always worth it. Creating my own web application from scratch was not easy, but was made easier by technologies such as Thymeleaf, Hibernate, BootStrap Studio, etc. It took extreme dedication to learn all of the technologies necessary to build this Application
+            and implement them in my code Bug-Free.&nbsp;I plan to learn a bit of AJAX to make this Web App run smoother on certain pages. &nbsp;I will learn every technology necessary to build an impressive piece of Software. I also am developing my next exciting Web Application that I think will help a lot of people.</p>
+        <p
+            class="text-center">"I will never give up. I would have to be dead.. or completely incapacitated.." &nbsp;&nbsp;<strong>- Elon Musk</strong></p>
     </div>
     <div id="footer" class="footer-basic">
         <footer>
@@ -41,12 +52,12 @@
                 <p class="d-flex justify-content-center" id="techIMGpara"><img src="AboutMePageAssets/img/maven.png" width="75" height="75"><img src="AboutMePageAssets/img/springIMG.png" width="75" height="75"><img src="AboutMePageAssets/img/javaIMG.png" width="75" height="75"><img src="AboutMePageAssets/img/tomcatIMG.jpg" width="75" height="75"><img src="AboutMePageAssets/img/thymeleafIMG.png"
                         width="75" height="75"><img src="AboutMePageAssets/img/bootStrapStudioIMG.jpg" width="100" height="75"></p>
             </div>
-            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
-            <ul
-                class="list-inline">
+            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20"
+                    target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
                 <li class="list-inline-item"><a href="#" th:href="Home">Home</a></li>
                 <li class="list-inline-item"><a href="#" th:href="AboutMePage">About</a></li>
-                </ul>
+            </ul>
         </footer>
     </div>
     <script src="AboutMePageAssets/js/jquery.min.js"></script>
