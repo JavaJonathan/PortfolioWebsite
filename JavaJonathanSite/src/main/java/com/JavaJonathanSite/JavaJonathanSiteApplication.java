@@ -19,8 +19,5 @@ public class JavaJonathanSiteApplication extends SpringBootServletInitializer {
 		SpringApplication.run(JavaJonathanSiteApplication.class, args);
 	}
 
-	//public static void main(String[] args) {
-		//SpringApplication.run(JavaJonathanSiteApplication.class, args);
-	//}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.server.WebSession;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -22,16 +23,18 @@ public class GuestListMainController
 	@GetMapping("GuestListMainPage")
 	public ModelAndView displayListCounts(Model model, HttpSession session) 
 	{
-		
 		ModelAndView mav = new ModelAndView("GuestListMainPage");
-		
-		setCountSessionAttributes(session);
-		
-		//adds entire list to view, access session to be used after user leave web app
-		session.setAttribute("allGuests", GuestService.guestArrayList);
 		
 		mainMessage="To get started, please add a guest to the list.";
 		model.addAttribute("mainMessage", mainMessage);
+		
+		//fixes a weird bug where if it saved to session everyone is able to access list
+		if(session.isNew()) {GuestService.guestArrayList.clear();}
+		
+		//adds entire list to view, access session to be used after user leaves web app
+		session.setAttribute("allGuests", GuestService.guestArrayList);
+		setCountSessionAttributes(session);
+	
 		
 		return mav; 
 		

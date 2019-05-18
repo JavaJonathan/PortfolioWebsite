@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewController 
 {
 	
-	@GetMapping("/Home")
+	@GetMapping(value= {"/Home", "/", "/home"})
 	public ModelAndView homePageView() 
 	{
 		ModelAndView mv = new ModelAndView();
@@ -16,7 +16,7 @@ public class ViewController
 		return mv;
 	}
 	
-	@GetMapping("/AboutMePage")
+	@GetMapping(value= {"/AboutMePage", "/AboutMe"})
 	public ModelAndView aboutMePageView() 
 	{
 		ModelAndView mv = new ModelAndView();
@@ -24,7 +24,7 @@ public class ViewController
 		return mv;
 	}
 	
-	@GetMapping("/ProjectPage")
+	@GetMapping(value= {"/ProjectPage", "/Projects"})
 	public ModelAndView projectPageView() 
 	{
 		ModelAndView mv = new ModelAndView();

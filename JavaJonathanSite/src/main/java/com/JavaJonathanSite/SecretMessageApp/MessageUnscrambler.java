@@ -204,8 +204,8 @@ public class MessageUnscrambler {
                 case 'S': decodedMessage = decodedMessage.concat("A"); continue;
                 case 'g': decodedMessage = decodedMessage.concat("b"); continue; // g = b
                 case 'G': decodedMessage = decodedMessage.concat("B"); continue;
-                case 'o': decodedMessage = decodedMessage.concat("c"); continue; // o = c
-                case 'O': decodedMessage = decodedMessage.concat("C"); continue;
+                case 'p': decodedMessage = decodedMessage.concat("c"); continue; // p = c
+                case 'P': decodedMessage = decodedMessage.concat("C"); continue;
                 case 'v': decodedMessage = decodedMessage.concat("d"); continue; // v = d
                 case 'V': decodedMessage = decodedMessage.concat("D"); continue;
                 case 'l': decodedMessage = decodedMessage.concat("e"); continue; // l = e
@@ -228,8 +228,8 @@ public class MessageUnscrambler {
                 case 'B': decodedMessage = decodedMessage.concat("M"); continue;
                 case 'x': decodedMessage = decodedMessage.concat("n"); continue; // x = n
                 case 'X': decodedMessage = decodedMessage.concat("N"); continue;
-                case 'p': decodedMessage = decodedMessage.concat("o"); continue; //leaves letter as the same to trick any malicious intent
-                case 'P': decodedMessage = decodedMessage.concat("O"); continue;
+                case 'o': decodedMessage = decodedMessage.concat("o"); continue; //leaves letter as the same to trick any malicious intent
+                case 'O': decodedMessage = decodedMessage.concat("O"); continue;
                 case 'n': decodedMessage = decodedMessage.concat("p"); continue; // n = p
                 case 'N': decodedMessage = decodedMessage.concat("P"); continue;
                 case 'f': decodedMessage = decodedMessage.concat("q"); continue; // f = q
