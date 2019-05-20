@@ -2,6 +2,7 @@ package com.JavaJonathanSite.weddingGuestList;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AddPageController {
 	
+	@Autowired
+	GuestService guestService;
 	
+	@Autowired
+	GuestListMainController guestListMainController;
 	
 	//String to be set to the main text on the webpage, telling user what to do next
 	//we will concatenate for multiple steps/errors
@@ -64,16 +69,16 @@ public class AddPageController {
 		}
 		
 		//final check to make sure everything goes well, returns if guest was added to list, trims name so it doesnt mess up any searches
-		if(GuestService.addGuestToList(addFirstName.trim(), addLastName.trim(), tableNumber, GuestService.convertToRSVP(addRsvpStatus),
-			GuestService.convertToSepcialGuest(addSpecialGuest))) 
+		if(guestService.addGuestToList(addFirstName.trim(), addLastName.trim(), tableNumber, guestService.convertToRSVP(addRsvpStatus),
+			guestService.convertToSepcialGuest(addSpecialGuest))) 
 		{
 			mav.setViewName("GuestListMainPage");
 			mainMessage = addFirstName +" "+ addLastName +" "+ "was added to the list.";
 			model.addAttribute("mainMessage", mainMessage);
-			model.addAttribute("allGuests", GuestService.guestArrayList);
+			model.addAttribute("allGuests", guestService.guestArrayList);
 			
 			//adds all counts to main view, stolen method from main controller
-			GuestListMainController.setCountSessionAttributes(session);
+			guestListMainController.setCountAttributes(model);
 			
 			return mav;
 		}
@@ -135,7 +140,7 @@ public class AddPageController {
 			}
 			
 			//allows user to edit table number
-			if(GuestService.editTableNumber(editOldFirstName, editOldLastName, tableNumber) == false)
+			if(guestService.editTableNumber(editOldFirstName, editOldLastName, tableNumber) == false)
 			{
 				mav.setViewName("GuestListAddPage");
 				mainMessage = "Input error. Guest not in list.";
@@ -154,7 +159,7 @@ public class AddPageController {
 		}	
 		
 			//checks guest status
-			if(GuestService.editSpecialGuest(editOldFirstName, editOldLastName, GuestService.convertToSepcialGuest(editSpecialGuest)) == false)
+			if(guestService.editSpecialGuest(editOldFirstName, editOldLastName, guestService.convertToSepcialGuest(editSpecialGuest)) == false)
 			{
 				mav.setViewName("GuestListAddPage");
 				mainMessage = "Input error. Guest not in list.";
@@ -171,7 +176,7 @@ public class AddPageController {
 			}
 		
 			//checks rsvp status
-			if(GuestService.editRsvpStatus(editOldFirstName, editOldLastName, GuestService.convertToRSVP(editRsvpStatus)) == false)
+			if(guestService.editRsvpStatus(editOldFirstName, editOldLastName, guestService.convertToRSVP(editRsvpStatus)) == false)
 			{
 				mav.setViewName("GuestListAddPage");
 				mainMessage = "Input error. Guest not in list.";
@@ -190,7 +195,7 @@ public class AddPageController {
 			//checks for first name, edits name last so all other methods work xD
 			if(editNewFirstName.length() != 0) 
 			{
-				if(GuestService.editGuestFirstName(editOldFirstName, editOldLastName, editNewFirstName) == false)
+				if(guestService.editGuestFirstName(editOldFirstName, editOldLastName, editNewFirstName) == false)
 				{
 					mav.setViewName("GuestListAddPage");
 					mainMessage = "Input error. Guest not in list.";
@@ -205,7 +210,7 @@ public class AddPageController {
 					mav.setViewName("GuestListMainPage");
 					mainMessage = editOldFirstName + " " + editOldLastName + " has been edited.";
 					model.addAttribute("mainMessage", mainMessage);
-					model.addAttribute("guestList", GuestService.guestArrayList);
+					model.addAttribute("guestList", guestService.guestArrayList);
 				}
 			}
 			
@@ -213,7 +218,7 @@ public class AddPageController {
 			//takes in guest new first name just in case it is changed in the same form
 			if(editNewLastName.length() != 0) 
 			{
-				if(GuestService.editGuestLastName(guestNewFirstName, editOldLastName, editNewLastName) == false)
+				if(guestService.editGuestLastName(guestNewFirstName, editOldLastName, editNewLastName) == false)
 				{
 					mav.setViewName("GuestListAddPage");
 					mainMessage = "Input error. Guest not in list. 3";
@@ -227,12 +232,12 @@ public class AddPageController {
 					mav.setViewName("GuestListMainPage");
 					mainMessage = editOldFirstName + " " +editOldLastName + " has been edited.";
 					model.addAttribute("mainMessage", mainMessage);
-					model.addAttribute("guestList", GuestService.guestArrayList);
+					model.addAttribute("guestList", guestService.guestArrayList);
 				}
 			}
 			
 			//adds all counts to main view, stolen method from main controller
-			GuestListMainController.setCountSessionAttributes(session);
+			guestListMainController.setCountAttributes(model);
 			
 		return mav;
 	}

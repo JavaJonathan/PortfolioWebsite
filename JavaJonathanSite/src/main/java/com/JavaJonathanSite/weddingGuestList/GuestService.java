@@ -9,16 +9,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class GuestService
 {
-	public static ArrayList<Guest> guestArrayList = new ArrayList<>();
+	public ArrayList<Guest> guestArrayList = new ArrayList<>();
 
 	// we are going to populate this array list with the elements of user search
 	// then clear it after every use
-	public static ArrayList<Guest> searchList = new ArrayList<>();
+	public ArrayList<Guest> searchList = new ArrayList<>();
 
 	// adds guest to list, return boolean to know whether name was in list or not
 	// allows all values though because controller will have checks and set to
 	// sensible defaults
-	public static boolean addGuestToList(String firstName, String lastName, int tableNumber, RSVPStatusEnum rsvpStatus,
+	public boolean addGuestToList(String firstName, String lastName, int tableNumber, RSVPStatusEnum rsvpStatus,
 			SpecialGuestEnum specialGuest) 
 	{
 		//boolean to check if name is in list
@@ -50,7 +50,7 @@ public class GuestService
 	
 	//cycles through collection  and adds all guests from collection to array list, spring says collection cannot be casted into array list
 	//this is how we bypass that
-	public static void setGuestListFromDB(Collection<Guest> guestList) 
+	public void setGuestListFromDB(Collection<Guest> guestList) 
 	{
 		//clears list before populated from database just in case user already has the table popluated 
 		guestArrayList.clear();
@@ -58,7 +58,7 @@ public class GuestService
 	}
 	
 	//takes in string to decide which sort method to call
-		public static void sortList(String sortMethod) 
+		public void sortList(String sortMethod) 
 		{
 			switch(sortMethod) 
 			{
@@ -71,7 +71,7 @@ public class GuestService
 		
 	// takes in string to decide which rsvpStatus to assign
 	// no need to error check because the options will be preset in drop down
-	public static RSVPStatusEnum convertToRSVP(String rsvpStatusString) 
+	public RSVPStatusEnum convertToRSVP(String rsvpStatusString) 
 	{
 		RSVPStatusEnum rsvpStatus = RSVPStatusEnum.MAYBE;
 
@@ -87,7 +87,7 @@ public class GuestService
 	
 	// takes in string to decide which special guest status to assign
 	// no need to error check because the options will be preset in drop down
-	public static SpecialGuestEnum convertToSepcialGuest(String specialGuestString) 
+	public SpecialGuestEnum convertToSepcialGuest(String specialGuestString) 
 	{
 		SpecialGuestEnum specialGuest = SpecialGuestEnum.FALSE;
 
@@ -108,7 +108,7 @@ public class GuestService
 
 	// method to return number of people in the wedding party
 	// return an int to be rendered in view
-	public static int weddingPartyCount() 
+	public int weddingPartyCount() 
 	{
 		// counter for # of wedding party to be returned
 		int counter = 0;
@@ -134,7 +134,7 @@ public class GuestService
 
 	// method to return number of people that have said yes
 	// return an int to be rendered in view
-	public static int numOfYes() {
+	public int numOfYes() {
 		// counter for # of yes to be returned
 		int counter = 0;
 
@@ -151,7 +151,7 @@ public class GuestService
 	
 	// method to return number of people that are not assigned a table #
 	// return an int to be rendered in view
-	public static int guestsWithoutTable()
+	public int guestsWithoutTable()
 	{
 		// counter for # of guests w/o table # assigned to be returned
 		int counter = 0;
@@ -171,7 +171,7 @@ public class GuestService
 	
 	
 
-	public static boolean editTableNumber(String firstName, String lastName, int newTableNumber) {
+	public boolean editTableNumber(String firstName, String lastName, int newTableNumber) {
 		boolean isNameInList = false;
 
 		// cycles through list
@@ -192,7 +192,7 @@ public class GuestService
 
 	}
 
-	public static boolean editGuestFirstName(String firstName, String lastName, String newFirstName) 
+	public boolean editGuestFirstName(String firstName, String lastName, String newFirstName) 
 	{
 		boolean isNameInList = false;
 
@@ -215,7 +215,7 @@ public class GuestService
 		return isNameInList;
 	}
 	
-	public static boolean editGuestLastName(String firstName, String lastName, String newLastName) 
+	public boolean editGuestLastName(String firstName, String lastName, String newLastName) 
 	{
 		boolean isNameInList = false;
 
@@ -238,7 +238,7 @@ public class GuestService
 		return isNameInList;
 	}
 
-	public static boolean editRsvpStatus(String firstName, String lastName, RSVPStatusEnum newRsvpStatus) 
+	public boolean editRsvpStatus(String firstName, String lastName, RSVPStatusEnum newRsvpStatus) 
 	{
 		boolean isNameInList = false;
 
@@ -263,7 +263,7 @@ public class GuestService
 
 	}
 
-	public static boolean editSpecialGuest(String firstName, String lastName, SpecialGuestEnum newSpecialGuest) 
+	public boolean editSpecialGuest(String firstName, String lastName, SpecialGuestEnum newSpecialGuest) 
 	{
 		boolean isNameInList = false;
 
@@ -287,7 +287,7 @@ public class GuestService
 
 	// ALLOWS USER TO SEARCH GUESTS BY FIRST NAME, adds any name found to match to
 	// the search list
-	public static boolean searchByFirstName(String firstName) 
+	public boolean searchByFirstName(String firstName) 
 	{
 		//clears search list before each use
 		if(!searchList.isEmpty()) 
@@ -319,7 +319,7 @@ public class GuestService
 
 	// ALLOWS USER TO SEARCH GUESTS BY LAST NAME, adds any name found to match to
 	// the search list
-	public static boolean searchByLastName(String lastName) {
+	public boolean searchByLastName(String lastName) {
 		boolean isNameInList = true;
 
 		// cycles through list
@@ -340,7 +340,7 @@ public class GuestService
 	}
 
 	// ALLOWS USER TO REMOVE GUESTS BY NAME, removes name found in list
-	public static boolean removeGuest(String firstName, String lastName)
+	public boolean removeGuest(String firstName, String lastName)
 	{
 		boolean isNameInList = false;
 
