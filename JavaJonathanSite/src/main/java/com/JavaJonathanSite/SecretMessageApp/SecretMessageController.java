@@ -1,5 +1,6 @@
 package com.JavaJonathanSite.SecretMessageApp;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@Scope("session")
 public class SecretMessageController {
 	
 	//string to be displayed to tell user what do on view, each method needs its own to set a default value

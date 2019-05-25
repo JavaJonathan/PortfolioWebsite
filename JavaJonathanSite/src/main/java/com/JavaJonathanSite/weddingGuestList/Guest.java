@@ -7,9 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-//import javax.persistence.Embeddable;
-
-//needs to be serializable for DB
 @Embeddable
 public class Guest
 {

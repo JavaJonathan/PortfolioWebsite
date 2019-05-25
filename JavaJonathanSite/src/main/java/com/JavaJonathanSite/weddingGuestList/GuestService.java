@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.WebApplicationContext;
 
-@Service
+@Component
+@Scope(value = "session")
 public class GuestService
 {
 	public ArrayList<Guest> guestArrayList = new ArrayList<>();
@@ -40,7 +45,8 @@ public class GuestService
 
 		// if name isnt in the list after cycling through, we add it to the list,
 		// written long way for readability
-		if (isNameInList == false) {
+		if (isNameInList == false) 
+		{
 			guestArrayList.add(new Guest(firstName, lastName, tableNumber, rsvpStatus, specialGuest));
 			guestAdded = true;
 		}

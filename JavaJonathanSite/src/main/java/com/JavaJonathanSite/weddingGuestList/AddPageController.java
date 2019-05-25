@@ -3,6 +3,7 @@ package com.JavaJonathanSite.weddingGuestList;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@Scope("session")
 public class AddPageController {
 	
 	@Autowired
@@ -75,10 +77,10 @@ public class AddPageController {
 			mav.setViewName("GuestListMainPage");
 			mainMessage = addFirstName +" "+ addLastName +" "+ "was added to the list.";
 			model.addAttribute("mainMessage", mainMessage);
-			model.addAttribute("allGuests", guestService.guestArrayList);
+			session.setAttribute("allGuests", guestService.guestArrayList);
 			
 			//adds all counts to main view, stolen method from main controller
-			guestListMainController.setCountAttributes(model);
+			guestListMainController.setCountAttributes(model, session);
 			
 			return mav;
 		}
@@ -210,7 +212,7 @@ public class AddPageController {
 					mav.setViewName("GuestListMainPage");
 					mainMessage = editOldFirstName + " " + editOldLastName + " has been edited.";
 					model.addAttribute("mainMessage", mainMessage);
-					model.addAttribute("guestList", guestService.guestArrayList);
+					session.setAttribute("guestList", guestService.guestArrayList);
 				}
 			}
 			
@@ -232,12 +234,12 @@ public class AddPageController {
 					mav.setViewName("GuestListMainPage");
 					mainMessage = editOldFirstName + " " +editOldLastName + " has been edited.";
 					model.addAttribute("mainMessage", mainMessage);
-					model.addAttribute("guestList", guestService.guestArrayList);
+					session.setAttribute("guestList", guestService.guestArrayList);
 				}
 			}
 			
 			//adds all counts to main view, stolen method from main controller
-			guestListMainController.setCountAttributes(model);
+			guestListMainController.setCountAttributes(model, session);
 			
 		return mav;
 	}

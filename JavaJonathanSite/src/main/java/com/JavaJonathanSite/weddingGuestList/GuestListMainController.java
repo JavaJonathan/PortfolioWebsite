@@ -2,9 +2,11 @@ package com.JavaJonathanSite.weddingGuestList;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.server.WebSession;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@Scope("session")
 public class GuestListMainController 
 {
 	@Autowired
@@ -28,8 +31,6 @@ public class GuestListMainController
 	@GetMapping("GuestListMainPage")
 	public ModelAndView displayListCounts(Model model, HttpSession session) 
 	{
-		//tries to solve a weird bug where all the lists update if one user updates list
-		if(session.isNew()) {guestService.guestArrayList.clear();}
 		
 		ModelAndView mav = new ModelAndView("GuestListMainPage");
 		
@@ -37,8 +38,8 @@ public class GuestListMainController
 		model.addAttribute("mainMessage", mainMessage);
 		
 		//adds entire list to view, access session to be used after user leaves web app
-		model.addAttribute("allGuests", guestService.guestArrayList);
-		setCountAttributes(model);
+		session.setAttribute("allGuests", guestService.guestArrayList);
+		setCountAttributes(model, session);
 	
 		
 		return mav; 
@@ -58,8 +59,8 @@ public class GuestListMainController
 			mav.setViewName("GuestListMainPage");
 			mainMessage = "No results found. Showing entire list.";
 			model.addAttribute("mainMessage", mainMessage);
-			model.addAttribute("allGuests", guestService.guestArrayList);
-			setCountAttributes(model);
+			session.setAttribute("allGuests", guestService.guestArrayList);
+			setCountAttributes(model, session);
 		
 			return mav;
 		} 
@@ -68,8 +69,8 @@ public class GuestListMainController
 			mav.setViewName("GuestListMainPage");
 			mainMessage = "Showing all guests with the name " + searchFirstName; 
 			model.addAttribute("mainMessage", mainMessage);
-			model.addAttribute("allGuests", guestService.searchList);
-			setCountAttributes(model);
+			session.setAttribute("allGuests", guestService.searchList);
+			setCountAttributes(model, session);
 		}
 		
 		return mav;
@@ -82,7 +83,7 @@ public class GuestListMainController
 	{
 		ModelAndView mav = new ModelAndView();
 		
-		setCountAttributes(model);
+		setCountAttributes(model, session);
 		
 		//remove guest method return boolean if name is in list or not
 		if(guestService.removeGuest(removeFirstName, removeLastName) == false) 
@@ -97,6 +98,7 @@ public class GuestListMainController
 			mav.setViewName("GuestListMainPage");
 			mainMessage = removeFirstName + " " + removeLastName + " has been removed from the list.";
 			model.addAttribute("mainMessage", mainMessage);
+			setCountAttributes(model, session);
 		}
 		
 		return mav;
@@ -104,12 +106,12 @@ public class GuestListMainController
 	
 	//shows user full list after a search
 	@GetMapping("/showFullList")
-	public ModelAndView showFullList(Model model) 
+	public ModelAndView showFullList(Model model, HttpSession session) 
 	{
 		ModelAndView mav = new ModelAndView("GuestListMainPage");
 		mainMessage = "Showing full Guest List.";
 		model.addAttribute("mainMessage", mainMessage);
-		model.addAttribute("allGuests", guestService.guestArrayList);
+		session.setAttribute("allGuests", guestService.guestArrayList);
 		return mav;
 	}
 	
@@ -124,7 +126,7 @@ public class GuestListMainController
 		guestService.sortList(sortMethod);
 		mainMessage = "List sorted by Last Name.";
 		model.addAttribute("mainMessage", mainMessage);
-		model.addAttribute("allGuests", guestService.guestArrayList);
+		session.setAttribute("allGuests", guestService.guestArrayList);
 		return mav;
 	}
 	
@@ -138,7 +140,7 @@ public class GuestListMainController
 		guestService.sortList(sortMethod);
 		mainMessage = "List sorted by Table Number.";
 		model.addAttribute("mainMessage", mainMessage);
-		model.addAttribute("allGuests", guestService.guestArrayList);
+		session.setAttribute("allGuests", guestService.guestArrayList);
 		return mav;
 	}
 
@@ -153,7 +155,7 @@ public class GuestListMainController
 		guestService.sortList(sortMethod);
 		mainMessage = "List sorted by RSVP Status.";
 		model.addAttribute("mainMessage", mainMessage);
-		model.addAttribute("allGuests", guestService.guestArrayList);
+		session.setAttribute("allGuests", guestService.guestArrayList);
 		return mav;
 	}
 
@@ -168,28 +170,28 @@ public class GuestListMainController
 		guestService.sortList(sortMethod);
 		mainMessage = "List sorted by Guest Status.";
 		model.addAttribute("mainMessage", mainMessage);
-		model.addAttribute("allGuests", guestService.guestArrayList);
+		session.setAttribute("allGuests", guestService.guestArrayList);
 		return mav;
 	}
 	
 	//packages setting the count variables in the session away because they have to be called often
 	//made static so add controller can also use with ease
-	public void setCountAttributes(Model model) 
+	public void setCountAttributes(Model model, HttpSession session) 
 	{
 		String guestsWithoutTable = Integer.toString(guestService.guestsWithoutTable()) + " Guest(s) w/o Table #";
-		model.addAttribute("guestsWithoutTable", guestsWithoutTable);
+		session.setAttribute("guestsWithoutTable", guestsWithoutTable);
 		
 		//guests with yes replies count
 		String numberOfYesReplies = Integer.toString(guestService.numOfYes()) + " Guest(s) replied 'Yes'";
-		model.addAttribute("numOfYes", numberOfYesReplies);
+		session.setAttribute("numOfYes", numberOfYesReplies);
 		
 		//number of guests in wedding
 		String weddingPartyCount = Integer.toString(guestService.weddingPartyCount()) + " Wedding Party Count";
-		model.addAttribute("weddingPartyCount", weddingPartyCount);
+		session.setAttribute("weddingPartyCount", weddingPartyCount);
 		
 		//number of guests invited
 		String guestCount = Integer.toString(guestService.guestArrayList.size()) + " Guest(s) Invited";
-		model.addAttribute("guestCount", guestCount);
+		session.setAttribute("guestCount", guestCount);
 	}
 	
 }
