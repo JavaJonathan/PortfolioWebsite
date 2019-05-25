@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Guest List Save Page</title>
+    <link rel="stylesheet" href="GuestListSavePageAssets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="GuestListSavePageAssets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="GuestListSavePageAssets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="GuestListSavePageAssets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    <link rel="stylesheet" href="GuestListSavePageAssets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="GuestListSavePageAssets/css/styles.css">
+</head>
+
+<body style="background-image: url(&quot;GuestListSavePageAssets/img/space2.jpg&quot;);background-size: cover;background-repeat: no-repeat;">
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top border-white navigation-clean" style="opacity: 0.85;background-color: rgba(4,4,4,0.56);">
+        <div class="container"><a class="navbar-brand text-white" href="#">Guest List Organizer</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="Home">&nbsp;<i class="fa fa-home"></i>&nbsp;Return to JavaJonathan</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="AboutMePage"><i class="far fa-smile-beam"></i>&nbsp;About Me</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="ProjectPage"><i class="fas fa-clipboard-list"></i>&nbsp;Projects</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <p class="d-flex justify-content-center" id="backPara"><a class="btn btn-primary" id="backButton" type="button" href="#" th:href="GuestListMainPage" style="background-color: rgba(10,10,10,0.38);color: rgb(220,124,195);"><strong>Back to Guest List</strong></a></p>
+    <div class="jumbotron" id="mainJumbo" style="background-color: rgba(0,4,8,0.61);">
+        <h1 class="text-center" id="mainHeading" style="color: rgb(222,135,196);font-family: 'Abril Fatface', cursive;">Save List</h1>
+        <p class="text-center" style="color: rgb(222,116,183);"><strong>Either save as a New List to be given a PIN Number or Overwrite an existing list using your list PIN Number. You can also delete your list at the bottom of the page.</strong></p>
+        <p class="d-flex justify-content-center"><a class="btn btn-primary" role="button" style="background-color: rgb(220,124,195);" href="#" th:href="saveNewList"><strong>Save as New List</strong></a></p>
+        <p class="text-center" style="color: rgb(252,253,254);" th:inline="text"><strong th:text="${editMainMessage}">OR</strong></p>
+        <form method="post" action="#" th:action="@{/overwriteList}">
+            <div class="d-flex justify-content-center"><input class="form-control" type="text" id="pinText" placeholder="Pin #" name="overwritePin"></div>
+            <p class="d-flex justify-content-center" id="existingPara"><button class="btn btn-primary" role="submit" style="background-color: rgb(220,124,195);"><strong>Overwrite Existing List</strong></button></p>
+        </form>
+    </div>
+    <div class="jumbotron" id="deleteJumbo" style="background-color: rgba(6,6,6,0.73);">
+        <p class="d-flex justify-content-around" id="iconPara"><i class="fa fa-warning"></i><i class="fa fa-warning"></i><i class="fa fa-warning"></i></p>
+        <h1 class="text-center" style="color: rgb(201,115,188);font-family: 'Abril Fatface', cursive;">Delete List</h1>
+        <p class="text-center" style="color: rgb(196,121,190);" th:inline="text"><strong th:text="${deleteMessage}">Delete your list if you no longer need it/want it on the website. ACTION CANNOT BE UNDONE!</strong></p>
+        <form method="post" action="#" th:action="@{/deleteList}">
+            <div class="d-flex justify-content-center"><input class="form-control" type="text" id="pinText" placeholder="Pin #" name="deletePin"></div>
+            <p class="d-flex justify-content-center" id="existingPara"><button class="btn btn-primary d-flex align-items-center" role="submit" id="newListButton" style="color: rgb(5,0,0);background-color: rgb(224,116,184);"><strong>Delete List</strong></button></p>
+        </form>
+    </div>
+    <div id="footer" class="footer-basic">
+        <footer>
+            <p class="d-flex justify-content-center" id="techPara">Built using the following technologies:</p>
+            <p class="d-flex justify-content-center" id="techIMGpara"><img src="GuestListSavePageAssets/img/maven.png" width="75" height="75"><img src="GuestListSavePageAssets/img/springIMG.png" width="75" height="75"><img src="GuestListSavePageAssets/img/javaIMG.png" width="75" height="75"><img src="GuestListSavePageAssets/img/tomcatIMG.jpg" width="75" height="75"><img src="GuestListSavePageAssets/img/thymeleafIMG.png" width="75"
+                    height="75"><img src="GuestListSavePageAssets/img/bootStrapStudioIMG.jpg" width="100" height="75"></p>
+            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20"
+                    target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#" th:href="Home">Home</a></li>
+                <li class="list-inline-item"><a href="#" th:href="AboutMePage">About</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="GuestListSavePageAssets/js/jquery.min.js"></script>
+    <script src="GuestListSavePageAssets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

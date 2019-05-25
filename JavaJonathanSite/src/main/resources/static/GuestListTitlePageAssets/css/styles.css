@@ -1,0 +1,19 @@
+#mainJumbo {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 150px;
+  height: 500px;
+}
+
+#newListButton {
+  height: 50px;
+}
+
+#pinText {
+  width: 150px;
+}
+
+#existingPara {
+  margin-top: 10px;
+}
+

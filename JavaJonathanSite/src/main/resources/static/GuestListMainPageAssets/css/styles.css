@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  background-image: url(guestListBGPic.jpg);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  background-image: url(guestListBGPic.jpg);
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #5f6ad4;
+  border-radius: .3rem;
+  width: 900px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(38,143,255,.5);
+  padding-right: 50px;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 50px;
+}
+
+#counterRow {
+  margin-bottom: 10px;
+}
+
+#removePara {
+  margin-top: 10px;
+}
+
+#saveButton {
+  background-color: rgb(194,105,161);
+  border-color: white;
+}
+
+#removeForm {
+  margin-left: 152px;
+}
+
+#lastNameTextBox {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+

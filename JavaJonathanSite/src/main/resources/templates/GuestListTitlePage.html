@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Guest List Title Page</title>
+    <link rel="stylesheet" href="GuestListTitlePageAssets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="GuestListTitlePageAssets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="GuestListTitlePageAssets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="GuestListTitlePageAssets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    <link rel="stylesheet" href="GuestListTitlePageAssets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="GuestListTitlePageAssets/css/styles.css">
+</head>
+
+<body style="background-image: url(&quot;GuestListTitlePageAssets/img/space2.jpg&quot;);background-size: cover;background-repeat: no-repeat;">
+    <div class="jumbotron" id="mainJumbo" style="background-image: url(&quot;GuestListTitlePageAssets/img/champagneBG.jpg&quot;);background-size: cover;background-repeat: no-repeat;">
+        <h1 class="text-center" style="color: rgb(224,116,184);font-family: 'Abril Fatface', cursive;">Wedding Guest List Organizer</h1>
+        <p style="color: rgb(254,254,254);"><strong>Dynamically add/remove guests from a list, sort the list in multiple ways, search guests various ways, keep track of the guests' name, guest status, table number, and RSVP status, keeps count of Guests Invited, Guests without an assigned table number, Guests that are coming, and the wedding party size. UPDATE 2.0: Allows user to save, update, and delete their guest list!</strong><br></p>
+        <p
+            class="d-flex justify-content-center"><a class="btn btn-primary d-flex align-items-center" role="button" id="newListButton" href="#" th:href="GuestListMainPage" style="color: rgb(5,0,0);background-color: rgb(224,116,184);"><strong>Create New List</strong></a></p>
+            <p class="text-center" style="color: rgb(255,255,255);"><strong>OR</strong></p>
+            <p class="text-center" style="color: rgb(224,116,184);" th:inline="text"><strong th:text="${mainMessage}">Edit existing list with PIN:</strong></p>
+            <form method="post" action="#" th:action="@{/retrieveList}">
+                <div class="d-flex justify-content-center"><input class="form-control" type="text" id="pinText" placeholder="Pin #" name="userPin"></div>
+                <p class="d-flex justify-content-center" id="existingPara"><button class="btn btn-primary d-flex align-items-center" type="submit" id="newListButton" style="color: rgb(5,0,0);background-color: rgb(224,116,184);"><strong>Edit Existing List</strong></button></p>
+            </form>
+    </div>
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top border-white navigation-clean" style="opacity: 0.85;background-color: rgba(4,4,4,0.56);">
+        <div class="container"><a class="navbar-brand text-white" href="#" th:href="GuestListTitlePage">Guest List Organizer</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="Home">&nbsp;<i class="fa fa-home"></i>&nbsp;Return to JavaJonathan</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="AboutMePage"><i class="far fa-smile-beam"></i>&nbsp;About Me</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" th:href="ProjectPage"><i class="fas fa-clipboard-list"></i>&nbsp;Projects</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div id="footer" class="footer-basic">
+        <footer>
+            <p class="d-flex justify-content-center" id="techPara">Built using the following technologies:</p>
+            <p class="d-flex justify-content-center" id="techIMGpara"><img src="GuestListTitlePageAssets/img/maven.png" width="75" height="75"><img src="GuestListTitlePageAssets/img/springIMG.png" width="75" height="75"><img src="GuestListTitlePageAssets/img/javaIMG.png" width="75" height="75"><img src="GuestListTitlePageAssets/img/tomcatIMG.jpg" width="75" height="75"><img src="GuestListTitlePageAssets/img/thymeleafIMG.png" width="75"
+                    height="75"><img src="GuestListTitlePageAssets/img/bootStrapStudioIMG.jpg" width="100" height="75"></p>
+            <div class="social"><a href="https://www.linkedin.com/in/javajonathan" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/JavaJonathan" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/jonhenderson20"
+                    target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="home.html">Home</a></li>
+                <li class="list-inline-item"><a href="AboutMePage.html">About</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="GuestListTitlePageAssets/js/jquery.min.js"></script>
+    <script src="GuestListTitlePageAssets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
